@@ -1,0 +1,68 @@
+type Query {
+  users(query: String): [User!]!
+  me: User!
+  post: Post!
+  posts(query: String, published: Boolean): [Post!]!
+  comments: [Comment!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+  deleteUser(id: ID!): User!
+  updateUser(data: UpdateUserInput): User!
+  createPost(data: CreatePostInput): Post!
+  deletePost(title: String!): Post!
+  createComment(data: CreateCommentInput): Comment!
+  deleteComment(text: String!): Comment!
+  togglePublishedOnPost(postId: String!): Post!
+}
+
+# input types can only have Scalar Types
+input CreateUserInput {
+  name: String!
+  email: String!
+  age: Int
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  age: Int
+}
+
+input CreatePostInput {
+  title: String!
+  body: String!
+  author: String!
+}
+
+input CreateCommentInput {
+  text: String!
+  author: String!
+  post: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int
+  posts: [Post!]!
+  comments: [Comment!]!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  body: String!
+  published: Boolean!
+  author: User!
+  comments: [Comment!]!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  author: User!
+  post: Post!
+}
