@@ -55,6 +55,7 @@ export default {
     if (age) {
       userFound.age = age
     }
+    return userFound
   },
   createPost: (parent, { data }, { db }, info) => {
     const { title, body, author } = data
@@ -83,6 +84,31 @@ export default {
 
     return postFound
   },
+  updatePost: (parent, { id, data: { title, body, author } }, { db }, info) => {
+    const postFound = db.posts.find(post => post.id === id)
+    const authorFound = db.users.find(user => user.id === author)
+
+    if (!postFound) {
+      throw new Error('Post not found')
+    }
+
+    if (title) {
+      postFound.title = title
+    }
+
+    if (body) {
+      postFound.body = body
+    }
+
+    if (author) {
+      if (!authorFound) {
+        throw new Error('Author not found')
+      }
+      postFound.author = author
+    }
+
+    return postFound
+  },
   createComment: (parent, { data }, { db }, info) => {
     const { text, author, post } = data
     const authorExists = db.users.find(user => user.id === author)
@@ -100,6 +126,19 @@ export default {
     db.comments.push(comment)
 
     return comment
+  },
+  updateComment: (parent, { id, data: { text } }, { db }, info) => {
+    const commentFound = db.comments.find(comment => comment.id === id)
+
+    if (!commentFound) {
+      throw new Error('Comment not found')
+    }
+
+    if (text) {
+      commentFound.text = text
+    }
+
+    return commentFound
   },
   deleteComment: (parent, { text }, { db }, info) => {
     const commentFound = db.comments.find(
