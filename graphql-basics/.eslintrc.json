@@ -1,7 +1,41 @@
 {
-    "extends": ["airbnb", "prettier"],
-    "parser": "babel-eslint",
-    "plugins": [
-        "graphql"
-    ]
+  "extends": ["eslint:recommended", "prettier"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "printWidth": 100
+      }
+    ],
+    "comma-dangle": ["error", "always-multiline"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "eol-last": ["error", "always"],
+    "indent": ["error", 2, { "MemberExpression": 1 }],
+    "no-multiple-empty-lines": ["error"],
+    "no-new-symbol": "error",
+    "no-trailing-spaces": ["error"],
+    "no-console": 1,
+    "no-undef": ["error"],
+    "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
+    "object-curly-spacing": ["error", "always"],
+    "object-shorthand": "error",
+    "prefer-const": 2,
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "space-in-parens": ["error", "never"],
+    "strict": [2, "never"],
+    "eqeqeq": ["error", "always"]
+  }
 }
