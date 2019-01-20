@@ -19,7 +19,7 @@ type Mutation {
 
 type Subscription {
   count: Int!
-  comment: Comment!
+  comment(postId: String!): Comment!
 }
 
 # input types can only have Scalar Types

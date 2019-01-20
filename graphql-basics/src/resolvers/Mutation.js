@@ -1,5 +1,7 @@
 import uuidv4 from 'uuid/v4'
 
+import { COMMENT, POST, USER } from '../constants'
+
 export default {
   createUser: (parent, { data }, { db }, info) => {
     const { email, name, age } = data
@@ -83,7 +85,7 @@ export default {
 
     return postFound
   },
-  createComment: (parent, { data }, { db }, info) => {
+  createComment: (parent, { data }, { db, pubsub }, info) => {
     const { text, author, post } = data
     const authorExists = db.users.find(user => user.id === author)
     const postExists = db.posts.find(p => p.id === post && p.published)
@@ -99,6 +101,7 @@ export default {
     const comment = { id: uuidv4(), text, author, post }
     db.comments.push(comment)
 
+    pubsub.publish(`${COMMENT} ${post}`, { comment })
     return comment
   },
   deleteComment: (parent, { text }, { db }, info) => {
