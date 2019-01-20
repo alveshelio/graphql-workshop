@@ -17,6 +17,11 @@ type Mutation {
   togglePublishedOnPost(postId: String!): Post!
 }
 
+type Subscription {
+  count: Int!
+  comment: Comment!
+}
+
 # input types can only have Scalar Types
 input CreateUserInput {
   name: String!
