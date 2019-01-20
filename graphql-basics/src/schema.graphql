@@ -18,8 +18,8 @@ type Mutation {
 }
 
 type Subscription {
-  count: Int!
   comment(postId: String!): Comment!
+  post: Post!
 }
 
 # input types can only have Scalar Types
@@ -39,6 +39,7 @@ input CreatePostInput {
   title: String!
   body: String!
   author: String!
+  published: Boolean!
 }
 
 input CreateCommentInput {

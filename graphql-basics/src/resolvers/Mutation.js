@@ -58,14 +58,18 @@ export default {
       userFound.age = age
     }
   },
-  createPost: (parent, { data }, { db }, info) => {
-    const { title, body, author } = data
+  createPost: (parent, { data }, { db, pubsub }, info) => {
+    const { title, body, author, published } = data
     const userExists = db.users.some(user => user.id === author)
     if (!userExists) {
       throw new Error('The user does not exists')
     }
-    const post = { id: uuidv4(), title, body, published: false, author, comments: [] }
+    const post = { id: uuidv4(), title, body, published, author, comments: [] }
     db.posts.push(post)
+
+    if (post.published) {
+      pubsub.publish(POST, { post })
+    }
 
     return post
   },
