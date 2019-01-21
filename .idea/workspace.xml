@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="395dfeb8-98a9-431f-abdc-c461c1762540" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql-basics/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql-basics/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql-basics/src/resolvers/Query.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/resolvers/Query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphql-basics/src/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/graphql-basics/src/schema.graphql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+            <state relative-caret-position="97">
+              <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -56,10 +56,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js">
+        <entry file="file://$PROJECT_DIR$/graphql-basics/.eslintrc.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphql-basics/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphql-basics/src/constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="2" column="42" lean-forward="true" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -67,17 +94,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            <state relative-caret-position="392">
+              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graphql-basics/src/schema.graphql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            <state relative-caret-position="300">
+              <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -107,6 +134,9 @@
       <find>NY57XJ22</find>
       <find>COMMENT</find>
       <find>.users</find>
+      <find>updatePost</find>
+      <find>babel-eslint</find>
+      <find>parser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,20 +147,20 @@
       <list>
         <option value="$PROJECT_DIR$/graphql-basics/src/.prettierrc" />
         <option value="$PROJECT_DIR$/graphql-basics/.prettierignore" />
-        <option value="$PROJECT_DIR$/graphql-basics/.eslintrc.json" />
-        <option value="$PROJECT_DIR$/graphql-basics/.babelrc" />
         <option value="$PROJECT_DIR$/graphql-basics/package.json" />
         <option value="$PROJECT_DIR$/graphql-basics/src/db.js" />
         <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Comment.js" />
         <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/User.js" />
         <option value="$PROJECT_DIR$/graphql.config.json" />
         <option value="$PROJECT_DIR$/graphql-basics/src/index.js" />
-        <option value="$PROJECT_DIR$/graphql-basics/src/constants.js" />
         <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Query.js" />
         <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js" />
-        <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js" />
-        <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js" />
+        <option value="$PROJECT_DIR$/graphql-basics/src/constants.js" />
         <option value="$PROJECT_DIR$/graphql-basics/src/schema.graphql" />
+        <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js" />
+        <option value="$PROJECT_DIR$/graphql-basics/.babelrc" />
+        <option value="$PROJECT_DIR$/graphql-basics/.eslintrc.json" />
+        <option value="$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js" />
       </list>
     </option>
   </component>
@@ -171,6 +201,13 @@
               <item name="graphqlUdemyWorkshop" type="462c0819:PsiDirectoryNode" />
               <item name="graphql-basics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="graphqlUdemyWorkshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="graphqlUdemyWorkshop" type="462c0819:PsiDirectoryNode" />
+              <item name="graphql-basics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resolvers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="graphqlUdemyWorkshop" type="b2602c69:ProjectViewProjectNode" />
@@ -238,23 +275,22 @@
       <workItem from="1547381106602" duration="506000" />
       <workItem from="1547384473479" duration="601000" />
       <workItem from="1547603028201" duration="1106000" />
-      <workItem from="1547983334364" duration="1806000" />
+      <workItem from="1547983334364" duration="5194000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35168000" />
+    <option name="totallyTimeSpent" value="38556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="23" width="1920" height="954" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11767838" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298611" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32896304" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,38 +326,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/.eslintrc.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graphql-basics/.prettierrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -349,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/src/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graphql-basics/src/db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
@@ -370,34 +371,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js">
+    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/User.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js">
+    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="392">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Subscription.js">
+    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <caret line="2" column="42" lean-forward="true" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql-basics/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graphql-basics/src/schema.graphql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="300">
+          <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql-basics/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql-basics/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql-basics/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql-basics/src/resolvers/Mutation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

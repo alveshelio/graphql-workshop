@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4'
 
-import { COMMENT, POST, USER } from '../constants'
+import { COMMENT, CREATED, DELETED, POST, PUBLISHED, UNPUBLISHED, USER } from '../constants'
 
 export default {
   createUser: (parent, { data }, { db }, info) => {
@@ -68,12 +68,18 @@ export default {
     db.posts.push(post)
 
     if (post.published) {
-      pubsub.publish(POST, { post })
+      pubsub.publish(POST, {
+        post: {
+          mutation: CREATED,
+          data: post,
+          status: post.published ? PUBLISHED : UNPUBLISHED,
+        },
+      })
     }
 
     return post
   },
-  deletePost: (parent, { title }, { db }, info) => {
+  deletePost: (parent, { title }, { db, pubsub }, info) => {
     const postFound = db.posts.find(post => post.title.toLowerCase() === title.toLowerCase())
 
     if (!postFound) {
@@ -81,10 +87,50 @@ export default {
     }
     db.posts = db.posts.filter(post => post.id !== postFound.id)
 
+    pubsub.publish(POST, {
+      post: {
+        mutation: DELETED,
+        data: postFound,
+        status: null,
+      },
+    })
+
     const commentsFound = db.comments.filter(comment => postFound.comments.includes(comment.id))
 
     if (commentsFound.length) {
       db.comments = db.comments.filter(comment => !postFound.comments.includes(comment.id))
+    }
+
+    return postFound
+  },
+  updatePost: (parent, { id, data: { title, body, author, published } }, { db, pubsub }, info) => {
+    const postFound = db.posts.find(post => post.id === id)
+    const authorFound = db.users.find(user => user.id === author)
+
+    const originalPost = { ...postFound }
+
+    if (!postFound) {
+      throw new Error('Post not found')
+    }
+
+    if (title) {
+      postFound.title = title
+    }
+
+    if (body) {
+      postFound.body = body
+    }
+
+    if (typeof published === 'boolean') {
+      postFound.published = published
+    }
+
+    if (!authorFound) {
+      throw new Error('Author not found')
+    }
+
+    if (author && authorFound) {
+      postFound.author = author
     }
 
     return postFound
