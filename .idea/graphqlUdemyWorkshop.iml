@@ -9,7 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="@types/socket.io" level="application" />
-    <orderEntry type="library" name="Node Core" level="project" />
     <orderEntry type="library" name="@types/graphql" level="application" />
   </component>
 </module>

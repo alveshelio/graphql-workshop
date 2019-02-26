@@ -19,8 +19,26 @@ type Mutation {
 }
 
 type Subscription {
-  comment(postId: String!): Comment!
+  comment(postId: String!): CommentSubscriptionPayload!
   post: PostSubscriptionPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type PostSubscriptionPayload {
+  data: Post!
+  mutation: MutationType!
+  status: String
+}
+
+type CommentSubscriptionPayload {
+  data: Comment!
+  mutation: MutationType!
+  status: String
 }
 
 # input types can only have Scalar Types
@@ -81,8 +99,3 @@ type Comment {
   post: Post!
 }
 
-type PostSubscriptionPayload {
-  data: Post!
-  mutation: String!
-  status: String!
-}
