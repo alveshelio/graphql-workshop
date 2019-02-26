@@ -9,12 +9,36 @@ type Query {
 type Mutation {
   createUser(data: CreateUserInput!): User!
   deleteUser(id: ID!): User!
-  updateUser(data: UpdateUserInput): User!
-  createPost(data: CreatePostInput): Post!
+  updateUser(id: ID!, data: UpdateUserInput!): User!
+  createPost(data: CreatePostInput!): Post!
   deletePost(title: String!): Post!
+  updatePost(id: ID!, data: UpdatePostInput!): Post!
   createComment(data: CreateCommentInput): Comment!
   deleteComment(text: String!): Comment!
   togglePublishedOnPost(postId: String!): Post!
+}
+
+type Subscription {
+  comment(postId: String!): CommentSubscriptionPayload!
+  post: PostSubscriptionPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type PostSubscriptionPayload {
+  data: Post!
+  mutation: MutationType!
+  status: String
+}
+
+type CommentSubscriptionPayload {
+  data: Comment!
+  mutation: MutationType!
+  status: String
 }
 
 # input types can only have Scalar Types
@@ -34,6 +58,14 @@ input CreatePostInput {
   title: String!
   body: String!
   author: String!
+  published: Boolean!
+}
+
+input UpdatePostInput {
+  title: String
+  body: String
+  author: String
+  published: Boolean
 }
 
 input CreateCommentInput {
@@ -66,3 +98,4 @@ type Comment {
   author: User!
   post: Post!
 }
+

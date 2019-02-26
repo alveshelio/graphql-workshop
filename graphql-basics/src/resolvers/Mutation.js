@@ -1,4 +1,16 @@
 import uuidv4 from 'uuid/v4'
+import { isEqual } from 'lodash'
+
+import {
+  COMMENT,
+  CREATED,
+  DELETED,
+  POST,
+  PUBLISHED,
+  UNPUBLISHED,
+  UPDATED,
+  USER,
+} from '../constants'
 
 export default {
   createUser: (parent, { data }, { db }, info) => {
@@ -56,22 +68,41 @@ export default {
       userFound.age = age
     }
   },
-  createPost: (parent, { data }, { db }, info) => {
-    const { title, body, author } = data
+  createPost: (parent, { data }, { db, pubsub }, info) => {
+    const { title, body, author, published } = data
     const userExists = db.users.some(user => user.id === author)
     if (!userExists) {
       throw new Error('The user does not exists')
     }
-    const post = { id: uuidv4(), title, body, published: false, author, comments: [] }
+    const post = { id: uuidv4(), title, body, published, author, comments: [] }
     db.posts.push(post)
+
+    if (post.published) {
+      pubsub.publish(POST, {
+        post: {
+          mutation: CREATED,
+          data: post,
+          status: post.published ? PUBLISHED : UNPUBLISHED,
+        },
+      })
+    }
 
     return post
   },
-  deletePost: (parent, { title }, { db }, info) => {
+  deletePost: (parent, { title }, { db, pubsub }, info) => {
     const postFound = db.posts.find(post => post.title.toLowerCase() === title.toLowerCase())
 
     if (!postFound) {
       throw new Error('Post not found')
+    }
+    if (postFound.published) {
+      pubsub.publish(POST, {
+        post: {
+          mutation: DELETED,
+          data: postFound,
+          status: null,
+        },
+      })
     }
     db.posts = db.posts.filter(post => post.id !== postFound.id)
 
@@ -83,8 +114,67 @@ export default {
 
     return postFound
   },
-  createComment: (parent, { data }, { db }, info) => {
-    const { text, author, post } = data
+  updatePost: (parent, { id, data: { title, body, author, published } }, { db, pubsub }, info) => {
+    const postFound = db.posts.find(post => post.id === id)
+    let authorFound
+
+    if (!author) {
+      authorFound = db.users.find(user => user.id === author)
+    }
+
+    const originalPost = { ...postFound }
+
+    if (!postFound) {
+      throw new Error('Post not found')
+    }
+
+    if (title) {
+      postFound.title = title
+    }
+
+    if (body) {
+      postFound.body = body
+    }
+
+    if (typeof published === 'boolean') {
+      postFound.published = published
+    }
+
+    if (author && !authorFound) {
+      throw new Error('Author not found')
+    }
+
+    if (author && authorFound) {
+      postFound.author = author
+    }
+
+    // Has the post been updated
+    if (!isEqual(originalPost, postFound)) {
+      // if originalPost was unpublished and postFound is still unpublished then we'll not emit any updated
+      if (originalPost.published && !postFound.published) {
+        // it was unpublished
+        pubsub.publish(POST, {
+          post: {
+            mutation: UPDATED,
+            data: postFound,
+            status: UNPUBLISHED,
+          },
+        })
+      } else if (postFound.published) {
+        // post has been published
+        pubsub.publish(POST, {
+          post: {
+            mutation: UPDATED,
+            data: postFound,
+            status: PUBLISHED,
+          },
+        })
+      }
+    }
+
+    return postFound
+  },
+  createComment: (parent, { data: { text, author, post } }, { db, pubsub }, info) => {
     const authorExists = db.users.find(user => user.id === author)
     const postExists = db.posts.find(p => p.id === post && p.published)
 
@@ -99,9 +189,16 @@ export default {
     const comment = { id: uuidv4(), text, author, post }
     db.comments.push(comment)
 
+    pubsub.publish(`COMMENT ${post}`, {
+      comment: {
+        mutation: CREATED,
+        data: comment,
+        status: PUBLISHED,
+      },
+    })
     return comment
   },
-  deleteComment: (parent, { text }, { db }, info) => {
+  deleteComment: (parent, { text }, { db, pubsub }, info) => {
     const commentFound = db.comments.find(
       comment => comment.text.toLowerCase() === text.toLowerCase()
     )
@@ -114,6 +211,15 @@ export default {
     db.posts[postIndex].comments.filter(comment => {
       return comment !== commentFound.id
     })
+
+    pubsub.publish(`COMMENT ${commentFound.post}`, {
+      comment: {
+        mutation: DELETED,
+        data: commentFound,
+        status: null,
+      },
+    })
+
     return commentFound
   },
   togglePublishedOnPost: (parent, { postId }, { db }, info) => {
