@@ -16,6 +16,7 @@ services:
             host: ec2-54-235-67-106.compute-1.amazonaws.com
             database: ddbklka9i7hgi
             user: uiwbofikntnjok
+            ssl: true
             password: 2ba45724cef7a8dfb26add70418959fa8bccf4d867a4184aea97f62c8b270508
             rawAccess: true
             port: '5432'
