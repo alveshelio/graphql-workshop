@@ -7,6 +7,8 @@ const Query = {
   // info => contains information about the operations sent to the server
 
   users(parent, { query }, { db }, info) {
+    console.log('query', query)
+    console.log('db.users', db.users)
     return query
       ? db.users.filter(user => user.name.toLowerCase().includes(query.toLowerCase()))
       : db.users
